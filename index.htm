@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="ארכיון אישי מלא של שיחות Snapchat ו-WhatsApp">
+  <title>שיחות הילה — Snapchat ו-WhatsApp</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="app" class="app-shell">
+    <section id="home-view" class="view home-view" aria-labelledby="home-title">
+      <div class="home-kicker">ארכיון אישי · כל ההודעות המקוריות</div>
+      <h1 id="home-title">שיחות<br><span>הילה</span></h1>
+      <p class="home-intro">שתי שיחות, שתי שפות ויזואליות, ציר זמן אחד שנשמר במלואו.</p>
+      <div class="source-cards">
+        <button class="source-card snap-card" data-open-chat="snapchat">
+          <span class="source-icon">👻</span><span class="source-name">Snapchat</span><span class="source-count" id="snap-count">טוען…</span><span class="source-arrow">←</span>
+        </button>
+        <button class="source-card wa-card" data-open-chat="whatsapp">
+          <span class="source-icon">◔</span><span class="source-name">WhatsApp</span><span class="source-count" id="wa-count">טוען…</span><span class="source-arrow">←</span>
+        </button>
+      </div>
+      <div class="home-note"><span class="status-dot"></span> הנתונים נטענים מקומית בדפדפן · ללא שרת</div>
+    </section>
+
+    <section id="chat-view" class="view chat-view" hidden>
+      <header id="chat-header" class="chat-header">
+        <button id="back-home" class="icon-button" aria-label="חזרה למסך הראשי">→</button>
+        <button id="contact-info" class="contact-button">
+          <span id="contact-avatar" class="avatar">ה</span>
+          <span><strong id="contact-name">הילה</strong><small id="contact-subtitle">שיחה</small></span>
+        </button>
+        <div class="header-actions"><button id="open-search" class="icon-button" aria-label="חיפוש">⌕</button><button id="open-info" class="icon-button" aria-label="מידע">ⓘ</button></div>
+      </header>
+      <div id="search-bar" class="search-bar" hidden><input id="search-input" type="search" placeholder="חיפוש בתוך כל השיחה…" autocomplete="off"><span id="search-count"></span><button id="close-search" class="icon-button">×</button></div>
+      <div id="chat-layout" class="chat-layout">
+        <aside class="timeline-rail" aria-label="ציר זמן"><button id="jump-first" title="הודעה ראשונה">↑</button><div id="timeline-track"><div id="timeline-thumb"></div></div><button id="jump-last" title="הודעה אחרונה">↓</button></aside>
+        <div id="chat-scroll" class="chat-scroll"><div id="virtual-content" class="virtual-content"></div><div id="loading-state" class="loading-state">טוען שיחה…</div></div>
+      </div>
+    </section>
+
+    <section id="info-panel" class="overlay" hidden><div class="info-panel"><button class="close-panel" data-close-panel>×</button><div id="info-avatar" class="info-avatar avatar">ה</div><h2 id="info-title">הילה</h2><p id="info-description"></p><nav class="info-tabs"><button class="active" data-tab="media">מדיה</button><button data-tab="links">קישורים</button><button data-tab="docs">מסמכים</button></nav><div id="info-content" class="info-content"></div></div></section>
+    <div id="media-viewer" class="overlay" hidden><button class="viewer-close" data-close-viewer>×</button><div id="viewer-content" class="viewer-content"></div></div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
