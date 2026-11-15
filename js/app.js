@@ -25,6 +25,8 @@ const ICON = {
   person: '<svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="4" fill="currentColor"/><path d="M4 21c0-4.5 3.6-7 8-7s8 2.5 8 7z" fill="currentColor"/></svg>',
   first: '<svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6 5h12M6 12l6-6 6 6M12 6v14"/></svg>',
   last: '<svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6 19h12M6 12l6 6 6-6M12 18V4"/></svg>',
+  dl: '<svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>',
+  share: '<svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 15V4M8 8l4-4 4 4M5 13v6h14v-6"/></svg>',
   chat: '<svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 5h16v11H9l-5 4z"/></svg>',
 };
 
@@ -81,7 +83,7 @@ function setIcons() {
   set('#s-close', 'back'); set('#s-up', 'up'); set('#s-down', 'down'); set('#info-back', 'back');
   set('#v-close', 'close'); set('#v-goto', 'goto'); set('#v-prev', 'back'); set('#v-next', 'chevL');
   set('#r-first', 'up'); set('#r-last', 'down'); set('#to-bottom', 'down');
-  set('#ia-search', 'search'); set('#ia-first', 'first'); set('#ia-last', 'last');
+  set('#v-dl-ic', 'dl'); set('#v-chat-ic', 'chat'); set('#v-share-ic', 'share'); set('#ia-search', 'search'); set('#ia-first', 'first'); set('#ia-last', 'last');
 }
 
 /* ---------- טעינה ---------- */
@@ -368,6 +370,7 @@ el.vc.addEventListener('click', (e) => {
   const v = e.target.closest('.voice'); if (v) { toggleVoice(v, e); return; }
   const img = e.target.closest('[data-view]'); if (img) openViewerByPath(img.dataset.view);
 });
+$('#tab-content').addEventListener('click', (e) => { const v = e.target.closest('.voice'); if (v) { e.stopPropagation(); toggleVoice(v, e); } }, true);
 function toggleVoice(v, e) {
   const src = v.dataset.audio;
   if (S.audio && S.audio.v === v) { // אותו נגן
@@ -423,9 +426,9 @@ function openInfo() {
   document.querySelectorAll('#tabs button').forEach((b) => { const k = b.dataset.tab; b.textContent = { media: 'מדיה', links: 'קישורים', docs: 'מסמכים', voice: 'קוליות' }[k] + ' ' + num(g[k].length); });
   showTab('media');
 }
-function closeInfo() { el.info.classList.remove('open'); setTimeout(() => { if (!el.info.classList.contains('open')) el.info.hidden = true; }, 260); }
+function closeInfo() { stopVoice(); el.info.classList.remove('open'); setTimeout(() => { if (!el.info.classList.contains('open')) el.info.hidden = true; }, 260); }
 function showTab(k) {
-  tabKey = k; shown = 0;
+  stopVoice(); tabKey = k; shown = 0;
   document.querySelectorAll('#tabs button').forEach((b) => b.classList.toggle('on', b.dataset.tab === k));
   $('#tab-content').innerHTML = ''; $('#info-body').scrollTop = Math.min($('#info-body').scrollTop, 300); moreItems();
 }
@@ -445,7 +448,7 @@ function itemHTML(it, idx) {
     ? `<div class="cell" data-gi="${idx}"><img loading="lazy" src="${url(it.p)}" alt=""></div>`
     : `<div class="cell" data-gi="${idx}"><video preload="metadata" muted src="${url(it.p)}#t=0.1"></video><span class="badge">${ICON.play}</span></div>`;
   if (tabKey === 'links') { let host = it.u; try { host = new URL(it.u).hostname; } catch {} return `<div class="list-item" data-goto="${it.mi}"><span class="li-ic">${ICON.link}</span><span class="li-t"><b>${esc(it.u)}</b><small>${esc(host)} · ${esc(fmtLong(d))}</small></span></div>`; }
-  if (tabKey === 'voice') return `<div class="list-item" data-goto="${it.mi}"><span class="li-ic">${ICON.mic}</span><span class="li-t"><b>הודעה קולית</b><small>${esc(fmtLong(d))} · ${esc(S.msgs[it.mi].time)} · לחץ למעבר להודעה</small></span></div>`;
+  if (tabKey === 'voice') { const mine = S.msgs[it.mi].sender === 'me'; return `<div class="list-item vi"><div class="voice" data-audio="${esc(url(it.p))}"><span class="v-play">${ICON.play}</span><div class="wave">${waveHTML(it.p)}</div><span class="v-time">🎤</span></div><div class="vi-sub"><small>${mine ? esc(S.cfg.me) : esc(S.cfg.other)} · ${esc(fmtLong(d))} · ${esc(S.msgs[it.mi].time)}</small><a href="${url(it.p)}" download="${esc(base(it.p))}">הורדה</a><button data-goto="${it.mi}">הצג בצ'אט</button></div></div>`; }
   return `<a class="list-item" href="${url(it.p)}" download target="_blank" rel="noopener"><span class="li-ic">${ICON.doc}</span><span class="li-t"><b>${esc(base(it.p))}</b><small>${esc(fmtLong(d))}</small></span></a>`;
 }
 $('#tabs').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) showTab(b.dataset.tab); });
@@ -469,11 +472,18 @@ function showViewer() {
   const it = S.vList[S.vPos]; if (!it) return;
   const m = S.msgs[it.mi];
   el.vStage.innerHTML = it.t === 'vid' ? `<video controls autoplay playsinline src="${url(it.p)}"></video>` : `<img src="${url(it.p)}" alt="">`;
-  $('#v-meta').textContent = m ? `${fmtLong(m.date)} · ${m.time}` : '';
+  $('#v-meta').innerHTML = (m ? `${esc(fmtLong(m.date))} · ${esc(m.time)}` : '') + `<br><span class="v-count">${num(S.vList.length - S.vPos)} / ${num(S.vList.length)}</span>`;
+  const dl = $('#v-dl'); dl.href = url(it.p); dl.setAttribute('download', base(it.p));
+  $('#v-share').hidden = !navigator.share;
   $('#v-prev').hidden = S.vPos >= S.vList.length - 1; $('#v-next').hidden = S.vPos <= 0;
 }
 function closeViewer() { el.viewer.hidden = true; el.vStage.innerHTML = ''; }
 $('#v-close').addEventListener('click', closeViewer);
+$('#v-chat').addEventListener('click', () => $('#v-goto').click());
+$('#v-share').addEventListener('click', async () => { const it = S.vList[S.vPos]; try { const r = await fetch(url(it.p)); const b = await r.blob(); const f = new File([b], base(it.p), { type: b.type }); if (navigator.canShare && navigator.canShare({ files: [f] })) await navigator.share({ files: [f] }); else await navigator.share({ url: new URL(url(it.p), location.href).href }); } catch (e) { if (e && e.name !== 'AbortError') toast('השיתוף לא זמין'); } });
+let swX = null;
+el.vStage.addEventListener('pointerdown', (e) => { if (e.target.tagName === 'VIDEO' && e.offsetY > e.target.clientHeight - 60) { swX = null; return; } swX = e.clientX; });
+el.vStage.addEventListener('pointerup', (e) => { if (swX == null) return; const dx = e.clientX - swX; swX = null; if (Math.abs(dx) > 70) { if (dx < 0 && S.vPos < S.vList.length - 1) { S.vPos++; showViewer(); } else if (dx > 0 && S.vPos > 0) { S.vPos--; showViewer(); } } });
 $('#v-prev').addEventListener('click', () => { S.vPos++; showViewer(); });
 $('#v-next').addEventListener('click', () => { S.vPos--; showViewer(); });
 $('#v-goto').addEventListener('click', () => { const it = S.vList[S.vPos]; closeViewer(); if (!el.info.hidden) closeInfo(); setTimeout(() => goToMsg(it.mi, true), 280); });
