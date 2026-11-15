@@ -94,7 +94,7 @@ async function load(key) {
   return d;
 }
 async function preCounts() {
-  for (const [k, id] of [['snapchat', '#snap-count'], ['whatsapp', '#wa-count']]) {
+  for (const [k, id] of [['snapchat', '#snap-count']]) {
     try { const d = await load(k); $(id).textContent = num(d.length) + ' הודעות'; } catch { $(id).textContent = 'לא נטען'; }
   }
 }
@@ -445,7 +445,7 @@ function itemHTML(it, idx) {
     ? `<div class="cell" data-gi="${idx}"><img loading="lazy" src="${url(it.p)}" alt=""></div>`
     : `<div class="cell" data-gi="${idx}"><video preload="metadata" muted src="${url(it.p)}#t=0.1"></video><span class="badge">${ICON.play}</span></div>`;
   if (tabKey === 'links') { let host = it.u; try { host = new URL(it.u).hostname; } catch {} return `<div class="list-item" data-goto="${it.mi}"><span class="li-ic">${ICON.link}</span><span class="li-t"><b>${esc(it.u)}</b><small>${esc(host)} · ${esc(fmtLong(d))}</small></span></div>`; }
-  if (tabKey === 'voice') return `<div class="list-item" data-goto="${it.mi}"><span class="li-ic">${ICON.mic}</span><span class="li-t"><b>${esc(base(it.p))}</b><small>${esc(fmtLong(d))} · ${esc(S.msgs[it.mi].time)} · לחץ למעבר להודעה</small></span></div>`;
+  if (tabKey === 'voice') return `<div class="list-item" data-goto="${it.mi}"><span class="li-ic">${ICON.mic}</span><span class="li-t"><b>הודעה קולית</b><small>${esc(fmtLong(d))} · ${esc(S.msgs[it.mi].time)} · לחץ למעבר להודעה</small></span></div>`;
   return `<a class="list-item" href="${url(it.p)}" download target="_blank" rel="noopener"><span class="li-ic">${ICON.doc}</span><span class="li-t"><b>${esc(base(it.p))}</b><small>${esc(fmtLong(d))}</small></span></a>`;
 }
 $('#tabs').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) showTab(b.dataset.tab); });
