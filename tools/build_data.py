@@ -167,7 +167,12 @@ def parse_whatsapp(src: Path, out: Path):
             extract_entry(z, info, wa_root, rel)
             archive_by_base[rel.name] = rel
             media_names.append(rel.name)
-        media_names.sort()
+        # A follow-up export may contain only the TXT and contact cards.
+        # Reuse media already extracted from the numbered export parts.
+        for existing in wa_root.iterdir():
+            if existing.is_file() and existing.name not in archive_by_base:
+                archive_by_base[existing.name] = Path(existing.name)
+        media_names = sorted(archive_by_base)
         for i, item in enumerate(messages):
             dt = item["dt"] or datetime(1970, 1, 1, tzinfo=IL)
             sender_raw = clean_name(item["senderOriginal"] or "")

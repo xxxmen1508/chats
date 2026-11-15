@@ -5,7 +5,7 @@ media/whatsapp/VID-20261022-WA0069.mp4	156851409	149.59	כן
 media/whatsapp/VID-20261022-WA0068.mp4	148609823	141.73	כן
 media/whatsapp/DOC-20260905-WA0001.zip	25156102	23.99	לא
 media/whatsapp/VID-20260929-WA0007.mp4	22617420	21.57	לא
-data/whatsapp.json	21793794	20.78	לא
+data/whatsapp.json	21889748	20.88	לא
 data/snapchat.json	21412344	20.42	לא
 media/whatsapp/VID-20261027-WA0091.mp4	13991983	13.34	לא
 media/whatsapp/VID-20261102-WA0049.mp4	7635627	7.28	לא
@@ -326,6 +326,7 @@ media/snapchat/memories/2026-01-31_b078b2a0-cd01-6b39-8414-e70a06e0e81a-main.jpg
 media/whatsapp/IMG-20261104-WA0009.jpg	121368	0.12	לא
 media/whatsapp/IMG-20261112-WA0006.jpg	121007	0.12	לא
 media/whatsapp/STK-20261022-WA0054.webp	120908	0.12	לא
+data/manifest.json	120667	0.12	לא
 media/whatsapp/STK-20260830-WA0072.webp	120652	0.12	לא
 media/whatsapp/IMG-20260910-WA0038.jpg	119631	0.11	לא
 media/whatsapp/STK-20261022-WA0056.webp	119458	0.11	לא
@@ -477,6 +478,7 @@ media/whatsapp/AUD-20260906-WA0021.m4a	83124	0.08	לא
 media/whatsapp/STK-20261022-WA0058.webp	82604	0.08	לא
 media/snapchat/memories/2025-12-29_e29f1445-a5d0-2fed-bda1-731f64f19995-main.jpg	82544	0.08	לא
 media/whatsapp/PTT-20260902-WA0023.opus	82525	0.08	לא
+data/size-report.txt	81882	0.08	לא
 media/whatsapp/PTT-20260929-WA0038.opus	81691	0.08	לא
 media/whatsapp/STK-20260909-WA0003.webp	81082	0.08	לא
 media/whatsapp/IMG-20261109-WA0100.jpg	81064	0.08	לא
@@ -548,6 +550,7 @@ media/snapchat/chat_media/2024-08-24_b~EiQSFVZYVmJzYTVrekNwdjYxVU14R1VJTRoAGgAyA
 media/snapchat/memories/2026-04-26_483412f8-8e61-e26c-2826-279fe2a5d09b-main.jpg	66852	0.06	לא
 media/snapchat/chat_media/2026-04-28_b~EiASFXV6OGR1d0I5Sm9XNTNTWWtad2hRczIBCUgCUARgAQ.jpg	66833	0.06	לא
 media/whatsapp/STK-20260901-WA0015.webp	66728	0.06	לא
+data/unmatched-media.json	66635	0.06	לא
 media/whatsapp/IMG-20261001-WA0065.jpg	66531	0.06	לא
 media/snapchat/chat_media/2024-08-20_b~EiQSFTZuOUNxdDhBNHVSUExxTTlmanNZShoAGgAyAQlIAlAEYAE.jpg	66315	0.06	לא
 media/whatsapp/STK-20260902-WA0031.webp	66236	0.06	לא
@@ -569,7 +572,10 @@ media/whatsapp/STK-20260831-WA0025.webp	64298	0.06	לא
 media/snapchat/memories/2026-04-27_6f403d94-5906-c51a-b6cc-0603b7a6a921-main.jpg	64276	0.06	לא
 media/whatsapp/VID-20261101-WA0029.mp4	63914	0.06	לא
 media/whatsapp/PTT-20260929-WA0042.opus	63884	0.06	לא
+reports/screenshots/home-desktop.png	63847	0.06	לא
 media/snapchat/memories/2026-04-22_982e260a-c8f5-41b9-9f43-ec88c27b925b-main.jpg	63754	0.06	לא
+reports/screenshots/whatsapp.png	63669	0.06	לא
+reports/screenshots/snapchat.png	63669	0.06	לא
 media/whatsapp/IMG-20261109-WA0105.jpg	63542	0.06	לא
 media/whatsapp/STK-20260910-WA0028.webp	63474	0.06	לא
 media/whatsapp/STK-20261022-WA0050.webp	63390	0.06	לא
@@ -647,7 +653,6 @@ media/whatsapp/STK-20260920-WA0068.webp	52398	0.05	לא
 media/whatsapp/IMG-20261030-WA0037.jpg	52315	0.05	לא
 media/snapchat/memories/2026-02-09_48965757-4ba2-7c6c-2cd0-e48a72efe6c3-main.jpg	52177	0.05	לא
 media/whatsapp/STK-20260915-WA0064.webp	52126	0.05	לא
-data/manifest.json	51886	0.05	לא
 media/whatsapp/PTT-20261113-WA0003.opus	51582	0.05	לא
 media/whatsapp/STK-20260920-WA0065.webp	51568	0.05	לא
 media/snapchat/memories/2026-02-08_4d58ddbf-0469-5ab1-b734-2eebad559393-main.jpg	51449	0.05	לא
@@ -885,6 +890,7 @@ media/snapchat/chat_media/2026-04-22_b~EiASFXREenNCN0xkRkZJY2ZHaFdTUFhvazIBCUgCU
 media/whatsapp/IMG-20260917-WA0000.jpg	31729	0.03	לא
 media/whatsapp/IMG-20261011-WA0000.jpg	31717	0.03	לא
 media/whatsapp/PTT-20261111-WA0064.opus	31711	0.03	לא
+reports/screenshots/home-mobile.png	31365	0.03	לא
 media/whatsapp/PTT-20260925-WA0108.opus	31283	0.03	לא
 media/whatsapp/STK-20260929-WA0016.webp	31220	0.03	לא
 media/whatsapp/IMG-20261109-WA0035.jpg	31012	0.03	לא
@@ -1082,7 +1088,6 @@ media/whatsapp/PTT-20260929-WA0075.opus	16444	0.02	לא
 media/whatsapp/STK-20260919-WA0030.webp	16338	0.02	לא
 media/whatsapp/IMG-20261015-WA0026.jpg	16274	0.02	לא
 media/whatsapp/PTT-20260903-WA0043.opus	16191	0.02	לא
-tools/__pycache__/build_data.cpython-312.pyc	16153	0.02	לא
 media/snapchat/chat_media/2026-08-11_b~EiASFTNFaHZKeE11QUh0NENRMllhRkxUcTIBCUgCUARgAQ.jpg	16024	0.02	לא
 media/whatsapp/PTT-20261102-WA0019.opus	16003	0.02	לא
 media/whatsapp/VID-20260918-WA0002.mp4	15974	0.02	לא
@@ -1165,6 +1170,7 @@ media/whatsapp/STK-20260906-WA0014.webp	11272	0.01	לא
 media/whatsapp/STK-20260910-WA0026.webp	11182	0.01	לא
 media/whatsapp/PTT-20261113-WA0009.opus	11174	0.01	לא
 media/whatsapp/PTT-20261113-WA0064.opus	11057	0.01	לא
+tools/build_data.py	10914	0.01	לא
 media/whatsapp/PTT-20261104-WA0044.opus	10901	0.01	לא
 media/whatsapp/PTT-20260827-WA0108.opus	10898	0.01	לא
 media/whatsapp/VID-20260910-WA0004.mp4	10876	0.01	לא
@@ -1174,7 +1180,6 @@ media/whatsapp/STK-20260910-WA0015.webp	10840	0.01	לא
 media/whatsapp/PTT-20260929-WA0063.opus	10742	0.01	לא
 media/whatsapp/STK-20250503-WA0206.webp	10682	0.01	לא
 media/whatsapp/PTT-20260902-WA0022.opus	10627	0.01	לא
-tools/build_data.py	10562	0.01	לא
 media/whatsapp/PTT-20260929-WA0043.opus	10500	0.01	לא
 media/whatsapp/STK-20260910-WA0023.webp	10342	0.01	לא
 media/whatsapp/STK-20261001-WA0091.webp	10190	0.01	לא
@@ -1185,8 +1190,8 @@ media/whatsapp/VID-20260830-WA0103.mp4	9896	0.01	לא
 media/whatsapp/PTT-20261104-WA0045.opus	9848	0.01	לא
 media/whatsapp/PTT-20260911-WA0055.opus	9684	0.01	לא
 media/whatsapp/VID-20260830-WA0100.mp4	9672	0.01	לא
+js/app.js	9635	0.01	לא
 media/whatsapp/PTT-20261112-WA0024.opus	9539	0.01	לא
-js/app.js	9433	0.01	לא
 media/whatsapp/PTT-20261104-WA0026.opus	9374	0.01	לא
 media/whatsapp/PTT-20260929-WA0067.opus	9363	0.01	לא
 media/whatsapp/STK-20260910-WA0018.webp	9356	0.01	לא
@@ -1196,8 +1201,8 @@ media/whatsapp/STK-20240806-WA0068.webp	9254	0.01	לא
 media/whatsapp/STK-20260911-WA0000.webp	9132	0.01	לא
 media/whatsapp/PTT-20260925-WA0000.opus	9037	0.01	לא
 media/whatsapp/STK-20260919-WA0028.webp	8910	0.01	לא
+css/style.css	8805	0.01	לא
 media/whatsapp/PTT-20261108-WA0050.opus	8795	0.01	לא
-css/style.css	8773	0.01	לא
 media/whatsapp/STK-20260915-WA0056.webp	8756	0.01	לא
 media/whatsapp/STK-20260915-WA0054.webp	8664	0.01	לא
 media/whatsapp/PTT-20260930-WA0015.opus	8663	0.01	לא
@@ -1268,17 +1273,20 @@ media/whatsapp/PTT-20260910-WA0030.opus	4603	0.00	לא
 media/whatsapp/PTT-20260902-WA0025.opus	4331	0.00	לא
 media/whatsapp/PTT-20241127-WA0001.opus	4310	0.00	לא
 media/whatsapp/PTT-20260920-WA0002.opus	4239	0.00	לא
+index.html	4016	0.00	לא
+index.htm	4016	0.00	לא
 media/whatsapp/PTT-20260919-WA0049.opus	3933	0.00	לא
 media/whatsapp/PTT-20261001-WA0028.opus	3868	0.00	לא
 media/whatsapp/PTT-20261019-WA0033.opus	3867	0.00	לא
-index.html	3845	0.00	לא
 README.md	2448	0.00	לא
 media/whatsapp/STK-20260915-WA0052.webp	1970	0.00	לא
 media/whatsapp/STK-20261022-WA0048.webp	1958	0.00	לא
 TODO.md	1752	0.00	לא
+reports/TEST-REPORT.md	1682	0.00	לא
 tools/check_data.mjs	1564	0.00	לא
 media/whatsapp/‏צ'אט WhatsApp עם רפאלה.zip	1047	0.00	לא
 media/whatsapp/רפאלה.vcf	134	0.00	לא
 media/whatsapp/טלטול.vcf	134	0.00	לא
 app.config.ts	101	0.00	לא
 manus-routes.json	80	0.00	לא
+.gitignore	27	0.00	לא
