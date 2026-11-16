@@ -220,13 +220,13 @@ mark.cur{background:#ff9a2e}
 .theme-snap .ctext{padding:0 2px}
 .theme-snap #contact{display:contents}
 .theme-snap .ctext{flex:1;order:1;padding:0 4px}
-.theme-snap .ctext strong{font-size:16.5px;font-weight:700;color:#fff}
+.theme-snap .ctext strong{white-space:normal;line-height:1.15;overflow:visible;font-size:16px;font-weight:700;color:#fff}
 .theme-snap .ctext small{display:none}
 .theme-snap .tb-actions{order:2}
 .theme-snap #avatar{order:3;width:44px;height:44px;margin-inline-start:6px;font-size:22px}
 .theme-snap #tb-more{display:none}
 .theme-snap .avatar{background:linear-gradient(135deg,#ffd54a,#ff8a3d)}
-.snapbanner{display:none;align-items:center;justify-content:center;gap:6px;direction:ltr;padding:12px 10px;background:#111;border-bottom:1px solid #1d1d1d;color:#2da2ff;font-size:11.5px;text-align:center;flex:none;white-space:nowrap;padding-inline:6px}
+.snapbanner{display:none;align-items:center;justify-content:center;gap:6px;direction:ltr;padding:12px 10px;background:#111;border-bottom:1px solid #1d1d1d;color:#2da2ff;font-size:11.5px;text-align:center;flex:none;padding-inline:8px}
 .snapbanner svg{width:17px;height:17px;color:#9a9a9a;flex:none}
 .snapbanner b{font-weight:400;unicode-bidi:isolate}
 .chat.theme-snap .snapbanner{display:flex}

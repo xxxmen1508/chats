@@ -99,6 +99,10 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--tick);outline-o
 .b.emo.out .meta,.b.emo.in .meta{color:#fff}
 .tx a{direction:ltr;unicode-bidi:isolate;display:inline-block;max-width:100%}
 .del{color:var(--meta);font-style:italic}
+.once{display:inline-flex;align-items:center;gap:8px;color:var(--meta);font-style:italic}
+.once i{font-style:italic}
+.once svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-dasharray:2 3.6;stroke-linecap:round;flex:none}
+.out .once{color:var(--meta-out)}
 
 /* media */
 .b.m{padding:3px}
@@ -373,8 +377,8 @@ function mk(i) {
     b.classList.add("c");
     b.innerHTML = '<span class="ci"><svg viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="M10 9.5v5l4-2.5z"/></svg></span><span class="cn"><b style="direction:rtl">סרטון</b><small>סרטון מעל 20 דקות (' + Math.round(x[0] / 60) + ' דקות), לא כלול בתצוגה</small></span>' + (tx ? '<span class="tx">' + fmt(tx) + "</span>" : "") + meta;
   } else if (k === 10) {
-    b.classList.add("c");
-    b.innerHTML = '<span class="ci"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2"/><circle cx="9" cy="11" r="1.8"/><path d="M4 17l5-4 4 3 3-2 4 3"/></svg></span><span class="cn"><b style="direction:rtl">מדיה</b><small>לא נכללה בייצוא</small></span>' + (tx ? '<span class="tx">' + fmt(tx) + "</span>" : "") + meta;
+    const lab = x === "a" ? "הודעה קולית חד פעמית" : x === "i" ? "תמונה חד פעמית" : x === "v" ? "סרטון חד פעמי" : "נפתחה";
+    b.innerHTML = '<span class="once"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg><i>' + lab + "</i></span>" + (tx ? '<div class="tx">' + fmt(tx) + "</div>" : "") + '<span class="sp"></span>' + meta;
   } else if (k === 8) {
     b.classList.add("c");
     b.innerHTML = '<span class="ci"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="cn"><b style="direction:rtl">מיקום</b><small><a href="' + esc(x) + '" target="_blank" rel="noopener noreferrer">פתח במפות</a></small></span>' + meta;

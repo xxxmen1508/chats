@@ -35,7 +35,7 @@ const ICON = {
 
 /* ------------------------------------------------------------------ */
 const SOURCES = {
-  snapchat: { file: 'data/snapchat.json', theme: 'theme-snap', contact: 'האושר של חיי ❤️', me: 'ME', other: 'האושר של חיי ❤️', accent: '#0eadff', avatarText: '❤️' },
+  snapchat: { file: 'data/snapchat.json', theme: 'theme-snap', contact: 'האושר של חיייי😍😍😍😍', me: 'ME', other: 'האושר של חיייי😍😍😍😍', accent: '#0eadff', avatarText: '😍' },
   whatsapp: { file: 'data/whatsapp.json', theme: 'theme-wa', contact: 'אלה ❤️', me: 'הילה', other: 'אלה ❤️', accent: '#00a884', avatarText: 'א' },
 };
 const STATUS_LABEL = {
