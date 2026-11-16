@@ -48,6 +48,8 @@
       </div>
     </header>
 
+    <div class="snapbanner" id="snapbanner" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6zM10 19a2 2 0 0 0 4 0M4 4l16 16"/></svg><span>Enable Notifications! Don't miss Chats from <b id="snapname"></b></span></div>
+
     <div class="searchbar" id="searchbar" hidden>
       <button class="ib" id="s-close" aria-label="סגור חיפוש"></button>
       <input id="s-input" type="search" placeholder="חיפוש בשיחה…" autocomplete="off" enterkeyhint="search">
@@ -104,6 +106,11 @@
     <button class="v-nav prev" id="v-prev" aria-label="הקודם"></button>
     <div class="v-stage" id="v-stage"></div>
     <button class="v-nav next" id="v-next" aria-label="הבא"></button>
+    <div class="v-bar">
+      <a class="v-act" id="v-dl" download><i id="v-dl-ic"></i><span>הורדה</span></a>
+      <button class="v-act" id="v-chat"><i id="v-chat-ic"></i><span>הצג בצ'אט</span></button>
+      <button class="v-act" id="v-share"><i id="v-share-ic"></i><span>שיתוף</span></button>
+    </div>
   </div>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>

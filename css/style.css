@@ -102,31 +102,7 @@ mark.cur{background:#ff9a2e}
 .wave i.on{opacity:1}
 .v-time{font-size:11.5px;opacity:.75;min-width:32px;text-align:end;direction:ltr}
 
-/* ===== ערכת סנאפצ'אט ===== */
-.theme-snap{--bg:#fff;--top-bg:#fff;--top-fg:#16181d;--top-border:1px solid #eceef1;--field:#f1f2f4;--comp-bg:#fff;--rail-btn:#fff;--track:#d8dbe0;--thumb:#fffc00;--tick:#80858f;--tick-bg:#ffffffd9;--card:#fff}
-.theme-snap .ctext small{color:#7b8089;opacity:1}
-.theme-snap .stage{background:#fff}
-.theme-snap .loading{background:#fff}
-.theme-snap .chip{color:#8a8f98;font-size:12px;font-weight:600;letter-spacing:.2px}
-.theme-snap .sys{color:#8a8f98;font-style:italic;background:none;padding:2px 12px}
-.theme-snap .row.m{border-inline-start:3px solid var(--bar);margin-inline-start:14px;margin-inline-end:36px;padding:2px 12px 2px 4px;left:0;right:0}
-.theme-snap .row.m.me{--bar:#0eadff}
-.theme-snap .row.m.other{--bar:#f23c57}
-.theme-snap .row.m.gap{padding-top:22px}
-.theme-snap .row.m.gap::before{content:attr(data-label);position:absolute;top:2px;inset-inline-start:12px;font-size:11.5px;font-weight:800;letter-spacing:.6px;color:var(--bar);text-transform:uppercase}
-.theme-snap .row.m.gap::after{content:attr(data-time);position:absolute;top:2px;inset-inline-start:calc(12px + var(--lw,40px) + 8px);font-size:10.5px;color:#a2a7b0}
-.theme-snap .row.m{position:absolute}
-.theme-snap .txt{font-size:16.5px;color:#16181d}
-.theme-snap .v-play{background:#0eadff;color:#fff}
-.theme-snap .other .v-play{background:#f23c57}
-.theme-snap .voice{color:#7b8089}
-.theme-snap .file,.theme-snap .broken,.theme-snap .stk-ph{background:#f3f4f6}
-.theme-snap .composer .pill{flex:1;height:42px;border-radius:21px;background:#f1f2f4;display:flex;align-items:center;padding:0 16px;color:#8a8f98;font-size:15px}
-.theme-snap .composer .cc{width:42px;height:42px;border-radius:50%;background:#f1f2f4;display:grid;place-items:center;color:#16181d;flex:none}
-.theme-snap .composer svg{width:23px;height:23px}
-.theme-snap .tb-actions .deco{color:#16181d}
-.theme-snap .avatar{background:linear-gradient(135deg,#ffd54a,#ff8a3d)}
-.theme-snap .search-hit{background:#fffc0033}
+
 
 /* ===== ערכת וואטסאפ ===== */
 .theme-wa{--bg:#efe7dd;--top-bg:#008069;--top-fg:#fff;--top-border:0;--field:#ffffff26;--comp-bg:#efe7dd;--rail-btn:#fff;--track:#00000026;--thumb:#25d366;--tick:#54656f;--tick-bg:#ffffffcc;--card:#fff;--out:#d9fdd3;--in:#fff}
@@ -233,3 +209,67 @@ mark.cur{background:#ff9a2e}
 .v-nav{position:absolute;top:50%;width:42px;height:60px;transform:translateY(-50%);color:#fff;z-index:3;display:grid;place-items:center;background:#0005;border-radius:10px}
 .v-nav.prev{right:6px}.v-nav.next{left:6px}
 .v-nav svg{width:26px;height:26px}
+
+/* ===== ערכת סנאפצ'אט (מצב כהה, כמו האפליקציה) ===== */
+.theme-snap{--bg:#000;--top-bg:#000;--top-fg:#fff;--top-border:1px solid #262626;--field:#1c1c1e;--comp-bg:#000;--rail-btn:#2b2b2d;--track:#3a3a3c;--thumb:#fffc00;--tick:#b5b5ba;--tick-bg:#000000d9;--card:#222;--me:#f2475e;--fr:#0fadff}
+.theme-snap .stage,.theme-snap .loading{background:#000}
+.theme-snap .topbar{min-height:62px}
+.theme-snap .ib svg{width:25px;height:25px}
+.theme-snap .tb-actions .ib{width:31px}
+.theme-snap .topbar{gap:0;padding-inline:4px}
+.theme-snap .ctext{padding:0 2px}
+.theme-snap #contact{display:contents}
+.theme-snap .ctext{flex:1;order:1;padding:0 4px}
+.theme-snap .ctext strong{font-size:16.5px;font-weight:700;color:#fff}
+.theme-snap .ctext small{display:none}
+.theme-snap .tb-actions{order:2}
+.theme-snap #avatar{order:3;width:44px;height:44px;margin-inline-start:6px;font-size:22px}
+.theme-snap #tb-more{display:none}
+.theme-snap .avatar{background:linear-gradient(135deg,#ffd54a,#ff8a3d)}
+.snapbanner{display:none;align-items:center;justify-content:center;gap:6px;direction:ltr;padding:12px 10px;background:#111;border-bottom:1px solid #1d1d1d;color:#2da2ff;font-size:11.5px;text-align:center;flex:none;white-space:nowrap;padding-inline:6px}
+.snapbanner svg{width:17px;height:17px;color:#9a9a9a;flex:none}
+.snapbanner b{font-weight:400;unicode-bidi:isolate}
+.chat.theme-snap .snapbanner{display:flex}
+.theme-snap .chip{color:#8e8e93;font-size:12px;font-weight:600;letter-spacing:.2px}
+.theme-snap .sys{color:#8e8e93;font-style:italic;background:none;padding:2px 12px;direction:ltr}
+.theme-snap .row.m{direction:ltr;border-left:2px solid var(--bar);margin-left:10px;margin-right:36px;padding:3px 8px 3px 14px;position:absolute;left:0;right:0}
+.theme-snap .row.m.me{--bar:var(--me)}
+.theme-snap .row.m.other{--bar:var(--fr)}
+.theme-snap .row.m.gap{padding-top:26px}
+.theme-snap .row.m.gap::before{content:attr(data-label);position:absolute;top:6px;left:12px;font-size:12px;font-weight:800;letter-spacing:.4px;color:var(--bar);text-transform:uppercase;unicode-bidi:isolate}
+.theme-snap .row.m.gap::after{content:attr(data-time);position:absolute;top:7px;left:calc(12px + var(--lw,40px) + 8px);font-size:10.5px;color:#6b6b70}
+.theme-snap .txt{font-size:20px;line-height:1.28;color:#fff;unicode-bidi:plaintext;text-align:start}
+.theme-snap .txt.emo{font-size:34px;line-height:1.25}
+.theme-snap .txt a{color:#6cc0ff}
+.theme-snap .v-play{background:var(--bar);color:#fff}
+.theme-snap .voice{color:#8e8e93}
+.theme-snap .voice .wave i.on{color:#fff}
+.theme-snap .file,.theme-snap .broken,.theme-snap .stk-ph{background:#1c1c1e;color:#ddd}
+.theme-snap .ph{color:#b5b5ba}
+mark{color:#000}
+.theme-snap .composer{direction:ltr;gap:8px;padding:10px 12px max(14px,env(safe-area-inset-bottom));align-items:center}
+.theme-snap .composer .ci{color:#fff;display:grid;place-items:center;flex:none}
+.theme-snap .composer .ci svg{width:27px;height:27px}
+.theme-snap .composer .pill{flex:1;height:48px;border-radius:24px;border:1.5px solid #ffffffd9;background:none;display:flex;align-items:center;gap:10px;padding:0 14px;color:#9a9a9f;font-size:17px;white-space:nowrap}
+.theme-snap .composer .pill span{flex:1;text-align:center}
+.theme-snap .composer .pill svg{width:24px;height:24px;color:#fff}
+.theme-snap .composer .cam{width:52px;height:52px;border-radius:50%;background:#fff;color:#000;display:grid;place-items:center;flex:none}
+.theme-snap .composer .cam svg{width:30px;height:30px}
+/* מסך פרופיל כהה */
+.info.theme-snap{background:#000;color:#fff}
+.info.theme-snap .info-top{background:#000;border-bottom:1px solid #262626}
+.info.theme-snap .info-hero,.info.theme-snap .tabs,.info.theme-snap .tab-content{background:#000}
+.info.theme-snap .info-hero p{color:#9a9a9f}
+.info.theme-snap .info-actions button{border-color:#2c2c2e;color:#fff}
+.info.theme-snap .tabs{border-bottom-color:#262626}
+.info.theme-snap .tabs button{color:#9a9a9f}
+.info.theme-snap .tabs button.on{color:var(--accent)}
+.info.theme-snap .cell,.info.theme-snap .list-item .li-ic{background:#1c1c1e}
+.info.theme-snap .list-item{border-bottom-color:#1c1c1e}
+.info.theme-snap .list-item .li-ic svg{color:#b5b5ba}
+.info.theme-snap .li-t small,.info.theme-snap .vi .vi-sub{color:#9a9a9f}
+.info.theme-snap .more,.info.theme-snap .vi .vi-sub a,.info.theme-snap .vi .vi-sub button,.info.theme-snap .flip-btn{background:#1c1c1e}
+.info.theme-snap .empty{color:#8e8e93}
+.info.theme-snap .voice{color:#8e8e93}
+.info.theme-snap .v-play{background:var(--accent);color:#fff}
+.info.theme-snap .voice .wave i.on{color:#fff}

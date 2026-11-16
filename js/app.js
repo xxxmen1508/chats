@@ -27,12 +27,15 @@ const ICON = {
   last: '<svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M6 19h12M6 12l6 6 6-6M12 18V4"/></svg>',
   dl: '<svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>',
   share: '<svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 15V4M8 8l4-4 4 4M5 13v6h14v-6"/></svg>',
+  game: '<svg viewBox="0 0 24 24"><rect x="2.5" y="6.5" width="19" height="11" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10v4M6 12h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="15.5" cy="11" r="1.1" fill="currentColor"/><circle cx="18" cy="13.2" r="1.1" fill="currentColor"/></svg>',
+  sticker: '<svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 4h14a1 1 0 0 1 1 1v9l-6 6H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M14 20v-5a1 1 0 0 1 1-1h5M8.5 9.5h.01M13 9.5h.01M8 13c1 1 2.5 1 3.5 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+  wave: '<svg viewBox="0 0 24 24"><path d="M4 9v6M8 5v14M12 8v8M16 3v18M20 9v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
   chat: '<svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 5h16v11H9l-5 4z"/></svg>',
 };
 
 /* ------------------------------------------------------------------ */
 const SOURCES = {
-  snapchat: { file: 'data/snapchat.json', theme: 'theme-snap', contact: 'האושר של חיי ❤️', me: 'אני', other: 'האושר של חיי ❤️', accent: '#0eadff', avatarText: '❤️' },
+  snapchat: { file: 'data/snapchat.json', theme: 'theme-snap', contact: 'האושר של חיי ❤️', me: 'ME', other: 'האושר של חיי ❤️', accent: '#0eadff', avatarText: '❤️' },
   whatsapp: { file: 'data/whatsapp.json', theme: 'theme-wa', contact: 'אלה ❤️', me: 'הילה', other: 'אלה ❤️', accent: '#00a884', avatarText: 'א' },
 };
 const STATUS_LABEL = {
@@ -206,11 +209,13 @@ function rowHTML(r, i) {
   let inner = '';
   if (md.length) inner += md.map((p) => mediaHTML(m, p, sticker)).join('');
   else if (kind !== 'TEXT') inner += placeholderHTML(m);
-  const textHTML = showText ? `<div class="txt">${hl(rawText)}</div>` : '';
+  const EMO_ONLY = /^(?:\p{Extended_Pictographic}|\p{Emoji_Modifier}|\u200d|\ufe0f|\s)+$/u;
+  const bigEmo = S.key === 'snapchat' && showText && rawText.length <= 40 && EMO_ONLY.test(rawText);
+  const textHTML = showText ? `<div class="txt${bigEmo ? ' emo' : ''}">${hl(rawText)}</div>` : '';
   const cls = `m ${mine ? 'me' : 'other'}${r.first ? ' first gap' : ''}`;
   if (S.key === 'snapchat') {
     const who = mine ? S.cfg.me : S.cfg.other;
-    const attrs = r.first ? ` data-label="${esc(who)}" data-time="${esc(m.time)}" style="--lw:${Math.round(who.length * 7.2 + 4)}px"` : '';
+    const attrs = r.first ? ` data-label="${esc(who)}" data-time="${esc(m.time)}" style="--lw:${Math.round(who.length * 6.2 + 4)}px"` : '';
     return { cls, attrs, html: inner + textHTML };
   }
   const only = md.length && !showText && !sticker && (IMG.includes(ext(md[0])) || (VID.includes(ext(md[0])) && kind !== 'NOTE'));
@@ -496,7 +501,7 @@ document.addEventListener('keydown', (e) => {
 /* ---------- פתיחת / סגירת צ'אט ---------- */
 function avatarInner() { return S.key === 'whatsapp' ? `<span style="width:60%;display:block;color:#dfe5e7">${ICON.person}</span>` : esc(S.cfg.avatarText); }
 function composerHTML() {
-  if (S.key === 'snapchat') return `<span class="cc">${ICON.camera}</span><span class="pill">שלח צ'אט</span><span class="cc">${ICON.emoji}</span><span class="cc">${ICON.mic}</span>`;
+  if (S.key === 'snapchat') return `<span class="ci">${ICON.game}</span><span class="ci">${ICON.sticker}</span><span class="ci">${ICON.emoji}</span><span class="pill">${ICON.wave}<span>Send a chat</span></span><span class="cam">${ICON.camera}</span>`;
   return `<span class="pill">${ICON.emoji}<span>הודעה</span>${ICON.clip}${ICON.camera}</span><span class="mic">${ICON.mic}</span>`;
 }
 async function openChat(key) {
@@ -506,7 +511,7 @@ async function openChat(key) {
   el.chat.className = 'chat ' + S.cfg.theme + (key === 'whatsapp' ? fl : '');
   $('#info-flip').hidden = key !== 'whatsapp'; el.chat.dataset.theme = S.cfg.theme;
   $('#cname').textContent = S.cfg.contact; $('#csub').textContent = key === 'whatsapp' ? 'לחץ לפרטי איש קשר' : 'לחץ לפרופיל';
-  $('#avatar').innerHTML = avatarInner();
+  $('#avatar').innerHTML = avatarInner(); $('#snapname').textContent = S.cfg.contact;
   $('#composer').innerHTML = composerHTML();
   const showDeco = key === 'whatsapp';
   $('#tb-video').hidden = !showDeco; $('#tb-call').hidden = !showDeco; if (!showDeco) { /* סנאפצ'אט: וידאו + שיחה */ $('#tb-video').hidden = false; $('#tb-call').hidden = false; }
