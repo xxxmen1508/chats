@@ -72,13 +72,13 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--tick);outline-o
 
 .b{position:relative;max-width:min(80%,520px);width:fit-content;padding:6px 8px 6px 8px;border-radius:9px;box-shadow:var(--shadow);line-height:1.38;
   white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;unicode-bidi:isolate}
-.b.out{background:var(--out);margin-left:auto}
-.b.in{background:var(--in);margin:0 auto 0 0}
-.b.out.first{border-top-right-radius:0}
-.b.in.first{border-top-left-radius:0}
+.b.out{background:var(--out);margin:0 auto 0 0}
+.b.in{background:var(--in);margin:0 0 0 auto}
+.b.out.first{border-top-left-radius:0}
+.b.in.first{border-top-right-radius:0}
 .b.out.first::before,.b.in.first::before{content:"";position:absolute;top:0;width:9px;height:13px;background:inherit}
-.b.out.first::before{right:-8px;clip-path:polygon(0 0,100% 0,0 100%)}
-.b.in.first::before{left:-8px;clip-path:polygon(0 0,100% 0,100% 100%)}
+.b.out.first::before{left:-8px;clip-path:polygon(0 0,100% 0,100% 100%)}
+.b.in.first::before{right:-8px;clip-path:polygon(0 0,100% 0,0 100%)}
 .tx a{color:var(--link);text-decoration:none}
 .tx a:hover{text-decoration:underline}
 .sp{display:inline-block;width:62px;height:1px}
